@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>情人节表白 - 给小V女士</title>
     <style>
         body {
@@ -21,17 +21,19 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            padding: 20px;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem; /* 移动端字体调小 */
+            margin-bottom: 15px;
             animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* 移动端字体调小 */
             animation: fadeIn 3s ease-in-out;
+            margin: 10px 0;
         }
 
         .stars {
@@ -65,7 +67,7 @@
 
         .heart {
             position: absolute;
-            font-size: 24px;
+            font-size: 20px; /* 移动端爱心调小 */
             color: #ff6b6b;
             animation: floatHeart linear infinite;
         }
@@ -123,13 +125,26 @@
         .glow-text {
             animation: glow 2s ease-in-out infinite;
         }
+
+        /* 移动端优化 */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem; /* 更小的字体 */
+            }
+            p {
+                font-size: 1rem; /* 更小的字体 */
+            }
+            .heart {
+                font-size: 16px; /* 更小的爱心 */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="stars">
         <!-- 生成星星 -->
         <script>
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 50; i++) { // 减少星星数量以提升性能
                 const star = document.createElement('div');
                 star.classList.add('star');
                 star.style.left = `${Math.random() * 100}%`;
@@ -143,7 +158,7 @@
     <div class="hearts">
         <!-- 生成爱心 -->
         <script>
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 20; i++) { // 减少爱心数量以提升性能
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.innerHTML = '❤️';
@@ -160,7 +175,7 @@
         <p>亲爱的小V女士，</p>
         <p>愿你在2025年平安顺遂、健康美丽！</p>
         <p>你是我生命中最闪亮的星星✨</p>
-        <p>永远爱你！by - zhh</p>
+        <p>永远爱你！-- zhh</p>
     </div>
 </body>
 </html>
